@@ -2034,9 +2034,12 @@
   
 #endif //End ANET model settings
 
+// GJH: Allow boot logo - disabled sd card
+/*
 #if ENABLED(SLIM_1284P) && ENABLED(BLTOUCH)
   #define DISABLE_BOOT
 #endif
+*/
 
 //Machine Check
 #if DISABLED(PRINTER_ENABLED_CHECK)
@@ -2083,12 +2086,13 @@
 #define ENDSTOP_NOISE_FILTER_SAMPLING 2
 
 #if ENABLED(SLIM_1284P)
-  #define SLIM_LCD_MENUS
-  #if ENABLED(LINEAR_ADVANCE)
-    #define DISABLE_BOOT
-  #elif ENABLED(EZABL_ENABLE)
-    #define DISABLE_BOOT
-  #endif
+//  #define SLIM_LCD_MENUS
+// GJH: Keep boot logo
+//  #if ENABLED(LINEAR_ADVANCE)
+//   #define DISABLE_BOOT
+//  #elif ENABLED(EZABL_ENABLE)
+//    #define DISABLE_BOOT
+//  #endif
 #endif
 
 #define STRING_CONFIG_H_AUTHOR "(TH3D)"
@@ -2230,6 +2234,7 @@
     #define DEFAULT_Ki 4.99
     #define DEFAULT_Kd 50.94
   #else  
+    // GJH: pid autotune values 
     #define  DEFAULT_Kp 22.66
     #define  DEFAULT_Ki 1.73
     #define  DEFAULT_Kd 74.26
@@ -2532,7 +2537,8 @@
 
 #define DISPLAY_CHARSET_HD44780 JAPANESE
 
-#define SDSUPPORT
+// GJH: Disable SD card support - not used
+// #define SDSUPPORT
 
 #define DISABLE_REDUCED_ACCURACY_WARNING
 
@@ -2544,9 +2550,12 @@
   #define LEVEL_CENTER_TOO
 #endif
 
+// GJH Re-enable speaker, removed SD card
+/*
 #if ENABLED(BLTOUCH) && ENABLED(SLIM_1284P)
   #define SPEAKER_KILL
 #endif
+*/
 
 #if DISABLED(SPEAKER_KILL)
   #define SPEAKER
